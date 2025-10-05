@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Student from "./App.jsx"; // ✅ Import default export
+import Counter from "./App"; // or "./Counter" if you renamed it
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
     <React.StrictMode>
-        <Student />
+        <Counter />
     </React.StrictMode>
 );

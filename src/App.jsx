@@ -1,70 +1,63 @@
-import React from "react";
-function Student() {
-  const stuName = "Jahnavi";
-  const age = 23;
-  const inEnr = true;
-  const sub = ["react", "node.js", "express"];
-
-  const stu = {
-    id: "6201",
-    email: "jahnavi@gmail.com",
+import react, { useState } from "react";
+function Counter() {
+  const [count, setCount] = useState(0);
+  const increment = () => {
+    setCount(count + 1);
   };
-  function sayHello() {
-    alert("hello,Student");
-  }
-  function showMessage(msg) {
-    console.log("Message:", msg);
-  }
+  const decrement = () => {
+    setCount(count - 1);
+  };
+  const reset = () => {
+    setCount(0);
+  };
+  const isEven = count % 2 == 0 ? "Even" : "Odd";
   return (
-    <div style={{ textAlign: "center", padding: "20px", fontFamily: "Arial" }}>
-      <h2>🎓 Student Information</h2>
-      <p>
-        <strong>Name:</strong> {stuName}
-      </p>
-      <p>
-        <strong>Age:</strong> {age}
-      </p>
-      <p>
-        <strong>Status:</strong> {inEnr ? "Enrolled" : "Not Enrolled"}
-      </p>
-
-      <h3>Subjects:</h3>
-      <ul>
-        {sub.map((subject, index) => (
-          <li key={index}>{subject}</li>
-        ))}
-      </ul>
-
-      <p>
-        <strong>Email:</strong> {stu.email}
-      </p>
+    <div style={{ textAlign: "center", padding: "30px", fontFamily: "Arial" }}>
+      <h2>⚙️ Counter with Even/Odd Check</h2>
+      <h3>
+        Counter: {count} → <span>{isEven}</span>
+      </h3>
 
       <div style={{ marginTop: "20px" }}>
         <button
-          onClick={sayHello}
+          onClick={increment}
           style={{
-            marginRight: "10px",
-            padding: "10px 15px",
+            margin: "5px",
+            padding: "10px 20px",
             borderRadius: "8px",
             cursor: "pointer",
           }}
         >
-          Say Hello
+          Increment
         </button>
 
         <button
-          onClick={() => showMessage("Welcome to React!")}
+          onClick={decrement}
           style={{
-            padding: "10px 15px",
+            margin: "5px",
+            padding: "10px 20px",
             borderRadius: "8px",
             cursor: "pointer",
           }}
         >
-          Show Message
+          Decrement
+        </button>
+
+        <button
+          onClick={reset}
+          style={{
+            margin: "5px",
+            padding: "10px 20px",
+            borderRadius: "8px",
+            cursor: "pointer",
+          }}
+        >
+          Reset
         </button>
       </div>
     </div>
   );
 }
 
-export default Student;
+export default Counter;
+
